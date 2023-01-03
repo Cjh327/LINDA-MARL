@@ -34,7 +34,23 @@ def run(_run, _config, _log):
     _log.info("\n\n" + experiment_params + "\n")
 
     # configure tensorboard logger
-    unique_token = "{}__{}".format(args.name, datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+    
+    # configure tensorboard logger
+    if args.env == 'sc2':
+        unique_token = "{}/{}_{}_{}".format(args.env_args['map_name'], args.env_args['map_name'], args.name,
+                                          datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+    elif args.env == 'foraging':
+        env_id = "Foraging{4}-{0}x{0}-{1}p-{2}f{3}-v0".format(args.env_args['field_size'], args.env_args['players'],
+                                                              args.env_args['max_food'],
+                                                              "-coop" if args.env_args['force_coop'] else "",
+                                                              "-2s" if args.env_args['partially_observe'] else "")
+        unique_token = "{}/{}__{}".format(env_id, args.name,
+                                          datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+    else:
+        unique_token = "{}/{}__{}".format(args.env, args.name,
+                                          datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+    
+    # unique_token = "{}__{}".format(args.name, datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
     args.unique_token = unique_token
     if args.use_tensorboard:
         tb_logs_direc = os.path.join(dirname(dirname(abspath(__file__))), "results", "tb_logs")

@@ -116,7 +116,7 @@ class LINDAQLearner:
 
         if t_env - self.log_stats_t >= self.args.learner_log_interval:
             self.logger.log_stat("loss", loss.item(), t_env)
-            self.logger.log_stat("loss", self.args.mi_coeff * mi_loss.item(), t_env)
+            self.logger.log_stat("mi_loss", self.args.mi_coeff * mi_loss.item(), t_env)
             self.logger.log_stat("grad_norm", grad_norm, t_env)
             mask_elems = mask.sum().item()
             self.logger.log_stat("td_error_abs", (masked_td_error.abs().sum().item() / mask_elems), t_env)

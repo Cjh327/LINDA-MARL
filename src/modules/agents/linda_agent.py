@@ -35,7 +35,6 @@ class LINDAAgent(nn.Module):
         # make hidden states on same device as model
         return self.mlp1.weight.new(1, self.args.rnn_hidden_dim).zero_()
 
-
     def forward(self, inputs, hidden_state, test_mode=False):
         # print('inputs shape', inputs.shape)
         bs = inputs.shape[0] // self.n_agents
