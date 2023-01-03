@@ -30,4 +30,4 @@ awareness_dim: 3
 var_floor: 0.002
 mi_coeff: 0.001
 
-name: "linda"
+name: "linda_qmix"

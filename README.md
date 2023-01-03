@@ -3,6 +3,8 @@ Code for "LINDA: Multi-Agent Local Information Decomposition for Awareness of Te
 
 ## Install
 ```
+sh install_sc2.sh
+
 conda create -n pymarl python=3.8 -y
 conda activate pymarl
 
@@ -21,3 +23,8 @@ Run script
 ```
 python run_experiments.py --map 2s3z --alg qmix --repeat 2 --cuda 0
 ```
+
+## TODO
+用分析工具分析为什么linda_agent这么慢
+
+Try to enlarge buffer_size and batch_size
