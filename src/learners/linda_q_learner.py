@@ -99,7 +99,6 @@ class LINDAQLearner:
         # Normal L2 loss, take mean over actual data
         loss = (masked_td_error ** 2).sum() / mask.sum()
         
-        # TODO: Mask for mi loss
         # mask: (32, 81, 1), kld_out: (32, 82, 1)
         mi_loss = (kld_out[:, :-1] * mask).sum() / mask.sum()
         loss += self.args.mi_coeff * mi_loss

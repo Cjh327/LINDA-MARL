@@ -25,6 +25,5 @@ python run_experiments.py --map 2s3z --alg qmix --repeat 2 --cuda 0
 ```
 
 ## TODO
-用分析工具分析为什么linda_agent这么慢
 
 Try to enlarge buffer_size and batch_size
