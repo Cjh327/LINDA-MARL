@@ -23,7 +23,3 @@ Run script
 ```
 python run_experiments.py --map 2s3z --alg qmix --repeat 2 --cuda 0
 ```
-
-## TODO
-
-Try to enlarge buffer_size and batch_size
